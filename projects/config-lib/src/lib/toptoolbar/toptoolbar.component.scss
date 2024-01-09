@@ -1,0 +1,13 @@
+@import '../style/index.scss';
+
+.toptoolbarstyle {
+  background-color: $colorePrincipale;
+  color: rgb(255, 255, 255);
+  min-height: 2px;
+  height: 40px;
+  padding-left: 0%;
+}
+
+.spacer{
+  flex: 1 1 auto;
+}

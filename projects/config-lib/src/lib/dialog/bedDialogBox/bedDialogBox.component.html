@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Configura Letto</h1><br>
+<div mat-dialog-content>
+  
+  <config-genericTable
+    [displayedColumns] = "['id', 'cod_bed', 'display', 'order_num', 'id_bedgroup']"
+    [pathGetAll]="'http://localhost:8088/Admin/s/rest/ADMIN/Beds/byRoomId/' + idStanza"
+    [actions] = false
+    [itemPerPage] = 5
+  ></config-genericTable>
+
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Chiudi</button>
+</div>

@@ -1,0 +1,28 @@
+@import '../style/index.scss';
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 10px;
+  width: 35px;
+}
+
+td, th, a {
+  max-width: 35px;  // Imposta la larghezza massima della cella
+  overflow: hidden; // Nasconde il testo che supera la larghezza massima
+  font-size: 13px;
+}
+
+.cell {
+  font-size: 14px;
+}
+
+.paginator {
+  display: flex;
+  justify-content: center;
+}
+
+
+
