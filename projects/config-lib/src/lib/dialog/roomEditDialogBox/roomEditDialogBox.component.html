@@ -1,0 +1,20 @@
+<h1 mat-dialog-title style="padding-left: 11%;">Modifica Stanza</h1><br>
+<div mat-dialog-content>
+  <form style="padding-left: 11%;">
+    <ng-container *ngFor="let column of this.data.displayedColumns">
+
+      <mat-form-field *ngIf="column !== 'actions' && column !== 'id_room'">
+        <input matInput [(ngModel)]="data.item[column]" name="{{column}}" placeholder={{column}}>
+      </mat-form-field>
+
+    </ng-container>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <div style="padding-left: 42%;">
+    <button mat-button (click)="onNoClick()" >Chiudi</button>
+  </div>
+  <div style="padding-right: 42%;">
+    <button mat-button (click)="onYesClick(data.item)">Salva</button>
+  </div>  
+</div>

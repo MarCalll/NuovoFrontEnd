@@ -13,6 +13,7 @@ import { GenericTableComponent } from '../genericTable/genericTable.component';
 import { TabellaDueComponent } from '../tabellaDue/tabellaDue.component';
 import { GestioneStanzeComponent } from '../gestioneStanze/gestioneStanze.component';
 import { BedDialogBoxComponent } from '../dialog/bedDialogBox/bedDialogBox.component';
+import { RoomEditDialogBoxComponent } from '../dialog/roomEditDialogBox/roomEditDialogBox.component';
 
 @NgModule({
   imports: [    CommonModule,
@@ -38,10 +39,12 @@ import { BedDialogBoxComponent } from '../dialog/bedDialogBox/bedDialogBox.compo
     GenericTableComponent,
     TabellaDueComponent,
     GestioneStanzeComponent,
-    BedDialogBoxComponent
+    BedDialogBoxComponent,
+    RoomEditDialogBoxComponent
   ],
   entryComponents:[
-    BedDialogBoxComponent
+    BedDialogBoxComponent,
+    RoomEditDialogBoxComponent
   ]
   })
 export class ContainerModule { 

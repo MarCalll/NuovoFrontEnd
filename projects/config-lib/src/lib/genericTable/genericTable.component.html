@@ -1,3 +1,7 @@
+<mat-form-field  *ngIf="tablesearch == true">
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Cerca">
+</mat-form-field>
+<br>
 <ng-container>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
     
@@ -12,7 +16,9 @@
           <ng-container *ngIf="column === 'actions'; else notActionsColumn">
     
             <div class="buttons">
-                <button mat-button (click)="openBedPanel(element)"><mat-icon>bed</mat-icon></button>
+                <button mat-button *ngIf="bedManagement == true" (click)="openBedDialog(element)" ><mat-icon>bed</mat-icon></button>
+                <button mat-button *ngIf="roomEditButton == true" (click)="roomOpenEditDialog(element)"><mat-icon>edit</mat-icon></button>
+                <button mat-button *ngIf="deleteButton == true"><mat-icon>delete</mat-icon></button>
             </div>
             
           </ng-container>

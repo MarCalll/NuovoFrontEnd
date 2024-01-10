@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { BedDialogBoxComponent } from '../dialog/bedDialogBox/bedDialogBox.component';
+import { ConfigService } from '../store/config.service';
+import { RoomEditDialogBoxComponent } from '../dialog/roomEditDialogBox/roomEditDialogBox.component';
 
 @Component({
   selector: 'config-genericTable',
@@ -10,7 +12,7 @@ import { BedDialogBoxComponent } from '../dialog/bedDialogBox/bedDialogBox.compo
 })
 export class GenericTableComponent implements OnInit {
 
-  constructor(private http: HttpClient,protected dialog:MatDialog) { }
+  constructor(private http: HttpClient,protected dialog:MatDialog,private service:ConfigService) { }
 
   ngOnInit() {
     this.loadTableData();
@@ -20,17 +22,24 @@ export class GenericTableComponent implements OnInit {
 
   @Input() displayedColumns: string[]
   @Input() pathGetAll: string;
-  @Input() actions: boolean;
   @Input() itemPerPage: number;
+
+  @Input() actions: boolean;
+  @Input() bedManagement : boolean;
+  @Input() roomEditButton : boolean;
+  @Input() deleteButton : boolean;
+  @Input() tablesearch : boolean;
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  
+
   contentDatabase : any[] = [];
   dataSource = new MatTableDataSource<any>();
-
+  
   loadTableData() {
-    this.getAll();
+    this.loadService()
+    this.service.getAll();
+
     if (this.actions == true) {
       this.displayedColumns.push('actions');
     }
@@ -39,18 +48,36 @@ export class GenericTableComponent implements OnInit {
     }
   }
 
-  getAll() {
-    this.http.get<any[]>(this.pathGetAll).subscribe(data => {
-      this.contentDatabase = data;
-      this.dataSource.data = this.contentDatabase;
-    });
-  } 
+  loadService() {
+    this.service.pathGetAll = this.pathGetAll
+    this.service.contentDatabase = this.contentDatabase
+    this.service.dataSource = this.dataSource
+  }
 
-  openBedPanel(item: any) {
+  openBedDialog(item: any) {
     this.dialog.open(BedDialogBoxComponent, {
       width: '3000px',
       data: { id_room: item.id_room}
     });
   }
 
+  roomOpenEditDialog(item: any) {
+    this.dialog.open(RoomEditDialogBoxComponent, {
+      width: "1000px",
+      data: {
+        displayedColumns: this.displayedColumns,
+        item: item,
+        pathGetAll: this.pathGetAll,
+        contentDatabase : this.contentDatabase,
+        dataSource : this.dataSource
+      }
+    });
+
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
 }
+
