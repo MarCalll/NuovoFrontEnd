@@ -58,7 +58,9 @@ export class GenericTableComponent implements OnInit {
   openBedDialog(item: any) {
     this.dialog.open(BedDialogBoxComponent, {
       width: '3000px',
-      data: { id_room: item.id_room}
+      data: { id_room: item.id_room,
+        room_number: item.room_number
+      }
     });
   }
 

@@ -13,6 +13,7 @@ export class BedDialogBoxComponent implements OnInit {
 
   onNoClick(): void {
     this.dialogRef.close();
+    console.log(this.data)
   }
 
   idStanza : number
