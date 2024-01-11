@@ -4,6 +4,7 @@ import { MatDialog, MatPaginator, MatSort, MatTableDataSource } from '@angular/m
 import { BedDialogBoxComponent } from '../dialog/bedDialogBox/bedDialogBox.component';
 import { ConfigService } from '../store/config.service';
 import { RoomEditDialogBoxComponent } from '../dialog/roomEditDialogBox/roomEditDialogBox.component';
+import { RoomDeleteDialogBoxComponent } from '../dialog/roomDeleteDialogBox/roomDeleteDialogBox.component';
 
 @Component({
   selector: 'config-genericTable',
@@ -77,6 +78,16 @@ export class GenericTableComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  openRoomDeleteDialog(item: any) {
+    this.dialog.open(RoomDeleteDialogBoxComponent, {
+      data: { item: item,
+      pathGetAll: this.pathGetAll,
+      contentDatabase : this.contentDatabase,
+      dataSource : this.dataSource
+      }
+    });
   }
 
 }

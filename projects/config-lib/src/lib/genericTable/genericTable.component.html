@@ -18,7 +18,7 @@
             <div class="buttons">
                 <button mat-button *ngIf="bedManagement == true" (click)="openBedDialog(element)" ><mat-icon>bed</mat-icon></button>
                 <button mat-button *ngIf="roomEditButton == true" (click)="roomOpenEditDialog(element)"><mat-icon>edit</mat-icon></button>
-                <button mat-button *ngIf="deleteButton == true"><mat-icon>delete</mat-icon></button>
+                <button mat-button *ngIf="deleteButton == true" (click)="openRoomDeleteDialog(element)"><mat-icon>delete</mat-icon></button>
             </div>
             
           </ng-container>

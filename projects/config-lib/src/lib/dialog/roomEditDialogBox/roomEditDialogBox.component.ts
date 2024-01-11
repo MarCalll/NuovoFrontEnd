@@ -15,13 +15,17 @@ export class RoomEditDialogBoxComponent implements OnInit {
   }
 
   onNoClick(): void {
-    this.dialogRef.close();
     this.service.getAll();
+    this.dialogRef.close();
   }
 
   onYesClick(item:any): void {
     this.service.updateRoom_id(item,this.data.pathGetAll,this.data.contentDatabase,this.data.dataSource)
     this.dialogRef.close();
+  }
 
+  ngOnDestroy(): void {
+    this.service.getAll();
+    
   }
 }
