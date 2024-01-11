@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material';
+import { AddRoomDialogBoxComponent } from '../addRoomDialogBox/addRoomDialogBox.component';
 
 @Component({
   selector: 'config-bedDialogBox',
@@ -8,7 +9,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 })
 export class BedDialogBoxComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<BedDialogBoxComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(public dialogRef: MatDialogRef<BedDialogBoxComponent>, @Inject(MAT_DIALOG_DATA) public data: any,protected dialog:MatDialog) { }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -18,6 +19,13 @@ export class BedDialogBoxComponent implements OnInit {
 
   ngOnInit() {
     this.idStanza = this.data.id_room
+  }
+
+  openAddRoomDialogBox(item: any) {
+    this.dialog.open(AddRoomDialogBoxComponent, {
+      data: { item: item
+      }
+    });
   }
 
 }

@@ -15,6 +15,8 @@ import { GestioneStanzeComponent } from '../gestioneStanze/gestioneStanze.compon
 import { BedDialogBoxComponent } from '../dialog/bedDialogBox/bedDialogBox.component';
 import { RoomEditDialogBoxComponent } from '../dialog/roomEditDialogBox/roomEditDialogBox.component';
 import { RoomDeleteDialogBoxComponent } from '../dialog/roomDeleteDialogBox/roomDeleteDialogBox.component';
+import { StanzeStrutturaDegenzaComponent } from '../stanzeStrutturaDegenza/stanzeStrutturaDegenza.component';
+import { AddRoomDialogBoxComponent } from '../dialog/addRoomDialogBox/addRoomDialogBox.component';
 
 @NgModule({
   imports: [    CommonModule,
@@ -40,14 +42,17 @@ import { RoomDeleteDialogBoxComponent } from '../dialog/roomDeleteDialogBox/room
     GenericTableComponent,
     TabellaDueComponent,
     GestioneStanzeComponent,
+    StanzeStrutturaDegenzaComponent,
     BedDialogBoxComponent,
     RoomEditDialogBoxComponent,
-    RoomDeleteDialogBoxComponent
+    RoomDeleteDialogBoxComponent,
+    AddRoomDialogBoxComponent
   ],
   entryComponents:[
     BedDialogBoxComponent,
     RoomEditDialogBoxComponent,
-    RoomDeleteDialogBoxComponent
+    RoomDeleteDialogBoxComponent,
+    AddRoomDialogBoxComponent
   ]
   })
 export class ContainerModule { 

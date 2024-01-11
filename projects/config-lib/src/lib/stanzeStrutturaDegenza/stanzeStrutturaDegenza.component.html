@@ -1,0 +1,23 @@
+<div>
+  
+  <div class="strutturaDegenza">
+    <div>
+      <mat-form-field>
+        <mat-select placeholder="Struttura">
+          <mat-option value="option">-</mat-option>
+          <mat-option *ngFor="let struttura of this.struttureArr" value="option">{{struttura}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="spacerDegenza">
+      <mat-form-field>
+        <mat-select placeholder="Degenza">
+          <mat-option value="option">-</mat-option>
+          <mat-option *ngFor="let degenza of this.degenzeArr" value="option">{{degenza}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+  </div>
+</div>
