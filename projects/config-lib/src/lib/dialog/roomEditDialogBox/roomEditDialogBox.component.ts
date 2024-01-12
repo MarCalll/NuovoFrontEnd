@@ -21,6 +21,7 @@ export class RoomEditDialogBoxComponent implements OnInit {
 
   onYesClick(item:any): void {
     this.service.updateRoom_id(item,this.data.pathGetAll,this.data.contentDatabase,this.data.dataSource)
+    this.service.getAll()
     this.dialogRef.close();
   }
 
