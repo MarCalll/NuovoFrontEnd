@@ -15,19 +15,24 @@ export class ConfigService {
 
   voceSelezionata = ""
   sideNavState = true
-
-  pathGetAll : string;
-  contentDatabase : any[];
-  dataSource: MatTableDataSource<any>;
-
   toggleSideNavStateService() {
     this.sideNavState = !this.sideNavState
   }
-  
+
+  pathGetAll : string;
+  contentDatabase : any[] = [];
+  dataSource: MatTableDataSource<any>;
+
+  getAll() {
+    this.http.get<any[]>(this.pathGetAll).subscribe(data => {
+      this.contentDatabase = data;
+      this.dataSource.data = this.contentDatabase;
+    })
+  }
+
   updateRoom_id(item:any,pathGetAll:string,contentDatabase:any[],dataSource:MatTableDataSource<any>) {
     if (item && item.id_room) {
-      console.log('Dati inviati nella richiesta:', item);
-  
+
       this.http.put<any>(pathGetAll + `/${item.id_room}`, item)
         .subscribe(response => {
           const index = contentDatabase.findIndex(s => s.id === item.id_room);
@@ -41,11 +46,13 @@ export class ConfigService {
     }
   }
 
-  getAll() {
-    this.http.get<any[]>(this.pathGetAll).subscribe(data => {
-      this.contentDatabase = data;
-      this.dataSource.data = this.contentDatabase;
+  deleteById(id_item:any,pathGetAll:string,contentDatabase:any[],dataSource:MatTableDataSource<any>) {
+    this.http.delete(pathGetAll + `/${id_item}`).subscribe(() => {
+      contentDatabase = contentDatabase.filter(ele => ele.id !== id_item);
+      console.log(pathGetAll + `/${id_item}`)
+      dataSource.data = contentDatabase;
     });
   }
+
 
 }

@@ -34,7 +34,6 @@ export class GenericTableComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  contentDatabase : any[] = [];
   dataSource = new MatTableDataSource<any>();
   
   loadTableData() {
@@ -47,15 +46,16 @@ export class GenericTableComponent implements OnInit {
     if (this.itemPerPage==null) {
       this.itemPerPage = 10
     }
+
   }
 
   loadService() {
     this.service.pathGetAll = this.pathGetAll
-    this.service.contentDatabase = this.contentDatabase
     this.service.dataSource = this.dataSource
   }
 
   openBedDialog(item: any) {
+
     this.dialog.open(BedDialogBoxComponent, {
       width: '3000px',
       data: { id_room: item.id_room,
@@ -71,8 +71,8 @@ export class GenericTableComponent implements OnInit {
         displayedColumns: this.displayedColumns,
         item: item,
         pathGetAll: this.pathGetAll,
-        contentDatabase : this.contentDatabase,
-        dataSource : this.dataSource
+        contentDatabase : this.service.contentDatabase,
+        dataSource : this.service.dataSource
       }
     });
 
@@ -84,10 +84,11 @@ export class GenericTableComponent implements OnInit {
 
   openRoomDeleteDialog(item: any) {
     this.dialog.open(RoomDeleteDialogBoxComponent, {
-      data: { item: item,
-      pathGetAll: this.pathGetAll,
-      contentDatabase : this.contentDatabase,
-      dataSource : this.dataSource
+      data: { 
+        item: item,
+        pathGetAll: this.pathGetAll,
+        contentDatabase : this.service.contentDatabase,
+        dataSource : this.service.dataSource
       }
     });
   }

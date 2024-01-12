@@ -16,8 +16,19 @@ export class SideNavComponent implements OnInit {
   topBarTitle:string
 
   listaMenu = [
-    { nome: "Gestione Stanze", path: "gStanze" },
-    { nome: "Tabella Due", path: "tabdue" },
+    { nome: "Stanze/letti", path: "gStanze" },
+    { nome: "Corsie", path: "corsie" },
+    { nome: "Requisiti chiusura cartella", path: "RequisitiChiusuraCartella" },
+    { nome: "Regole documentali", path: "tabdue" },
+    { nome: "Moduli clinici", path: "tabdue" },
+    { nome: "Configurazione protocolli", path: "tabdue" },
+    { nome: "Fasce orarie", path: "tabdue" },
+    { nome: "Motivi mancata esecuzione", path: "tabdue" },
+    { nome: "Tiles e carelets", path: "tabdue" },
+    { nome: "Diari", path: "tabdue" },
+    { nome: "Configurazione CF", path: "tabdue" },
+    { nome: "Proprieta documenti eward", path: "tabdue" },
+
   ]
 
   backuplistaMenu = this.listaMenu
@@ -31,7 +42,6 @@ export class SideNavComponent implements OnInit {
 
       if(voce.nome.toLowerCase().includes(this.parolaRicercata)) {
         this.listaMenu.push(voce)
-        console.log(voce)
       }
     }
   }
