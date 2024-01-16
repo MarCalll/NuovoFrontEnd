@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
+import { ConfigService,paths } from '../store/config.service';
 
 @Component({
   selector: 'config-stanzeStrutturaDegenza',
@@ -9,24 +10,22 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class StanzeStrutturaDegenzaComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private service:ConfigService) { }
 
-  path = 'http://localhost:8080/Admin/s/rest/ADMIN/Rooms/getAllStrutture'
+  path = this.service.getPath(paths.getAllStrutture)
 
-  struttureArr = ["strutt1","strutt2","strutt3","strutt4"]
+  struttureArr = []
+  struttureSet = new Set()
   degenzeArr = ["degenz1","degenz2","degenz3","degenz4"]
 
-  struttureDatabase : any[] = [];
-  struttureDataSource : MatTableDataSource<any>;
-  
-  test() {
-    this.http.get<any[]>(this.path).subscribe(data => {
-      this.struttureDatabase = data;
-      this.struttureDataSource.data = this.struttureDatabase;
-    })
-  }
-
   ngOnInit() {
+    this.http.get<any[]>(this.path).subscribe(data => {
+      for(let ele of data) {
+        this.struttureArr.push(ele.stDescrizione)
+      }
+      this.struttureSet = new Set(this.struttureArr);
+    })
+
   }
 
 }

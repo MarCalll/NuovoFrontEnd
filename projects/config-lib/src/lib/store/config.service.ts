@@ -7,7 +7,8 @@ import { BehaviorSubject } from "rxjs";
 export enum paths {
   stanzeLetti = '/rest/ADMIN/rooms',
   getLettiByRoomId = '/rest/ADMIN/Beds/byRoomId/',
-  letti = '/rest/ADMIN/Beds'
+  letti = '/rest/ADMIN/Beds',
+  getAllStrutture = '/rest/ADMIN/Rooms/getAllStrutture'
 }
 
 @Injectable()
@@ -35,6 +36,10 @@ export class ConfigService {
   }
   setPathWithId(path:paths,id:number) {
     this.pathGetAll = this.pathDoor+path+id
+  }
+  getPath(path : paths) {
+    let address = this.pathDoor + path
+    return address
   }
 
   //table
