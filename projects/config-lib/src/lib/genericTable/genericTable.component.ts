@@ -22,7 +22,6 @@ export class GenericTableComponent implements OnInit {
   }
 
   @Input() displayedColumns: string[]
-  @Input() pathGetAll: string;
   @Input() itemPerPage: number;
 
   @Input() actions: boolean;
@@ -37,7 +36,7 @@ export class GenericTableComponent implements OnInit {
   dataSource = new MatTableDataSource<any>();
   
   loadTableData() {
-    this.loadService()
+    this.service.dataSource = this.dataSource
     this.service.getAll();
 
     if (this.actions == true) {
@@ -49,13 +48,7 @@ export class GenericTableComponent implements OnInit {
 
   }
 
-  loadService() {
-    this.service.pathGetAll = this.pathGetAll
-    this.service.dataSource = this.dataSource
-  }
-
   openBedDialog(item: any) {
-
     this.dialog.open(BedDialogBoxComponent, {
       width: '3000px',
       data: { id_room: item.id_room,
@@ -70,7 +63,6 @@ export class GenericTableComponent implements OnInit {
       data: {
         displayedColumns: this.displayedColumns,
         item: item,
-        pathGetAll: this.pathGetAll,
         contentDatabase : this.service.contentDatabase,
         dataSource : this.service.dataSource
       }
@@ -86,7 +78,6 @@ export class GenericTableComponent implements OnInit {
     this.dialog.open(RoomDeleteDialogBoxComponent, {
       data: { 
         item: item,
-        pathGetAll: this.pathGetAll,
         contentDatabase : this.service.contentDatabase,
         dataSource : this.service.dataSource
       }

@@ -8,6 +8,7 @@
         </mat-form-field>
       </li>
       <li *ngFor="let elementoLista of listaMenu" class="indice" (click)="setTopBarTitle(elementoLista.nome)" routerLink="{{elementoLista.path}}" >{{elementoLista.nome}}</li>
+      <button mat-button color="accent" (click)="this.service.test()">test</button>
     </ul>
   </mat-sidenav>
   <mat-sidenav-content>

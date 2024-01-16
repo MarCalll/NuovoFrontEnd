@@ -17,16 +17,16 @@ export class SideNavComponent implements OnInit {
 
   listaMenu = [
     { nome: "Stanze/letti", path: "gStanze" },
-    { nome: "Corsie", path: "corsie" },
-    { nome: "Requisiti chiusura cartella", path: "RequisitiChiusuraCartella" },
+    { nome: "Corsie", path: "tabdue" },
+    { nome: "Requisiti chiusura cartella", path: "gStanze" },
     { nome: "Regole documentali", path: "tabdue" },
-    { nome: "Moduli clinici", path: "tabdue" },
+    { nome: "Moduli clinici", path: "gStanze" },
     { nome: "Configurazione protocolli", path: "tabdue" },
-    { nome: "Fasce orarie", path: "tabdue" },
+    { nome: "Fasce orarie", path: "gStanze" },
     { nome: "Motivi mancata esecuzione", path: "tabdue" },
-    { nome: "Tiles e carelets", path: "tabdue" },
+    { nome: "Tiles e carelets", path: "gStanze" },
     { nome: "Diari", path: "tabdue" },
-    { nome: "Configurazione CF", path: "tabdue" },
+    { nome: "Configurazione CF", path: "gStanze" },
     { nome: "Proprieta documenti eward", path: "tabdue" },
 
   ]

@@ -1,29 +1,60 @@
 @import '../style/index.scss';
-
+ 
+$colorePrincipale: #26a69a;
+ 
+ 
+th.mat-header-cell {
+  padding: 12px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid #ddd;
+  color: #fff;
+  background-color: $colorePrincipale;
+}
 table {
   width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
-
-.mat-form-field {
-  font-size: 12px;
-  width: 20%;
-  margin-left: 77%;
-}
-
-td, th, a {
-  max-width: 35px;  // Imposta la larghezza massima della cella
-  overflow: hidden; // Nasconde il testo che supera la larghezza massima
-  font-size: 13px;
-}
-
-.cell {
+ 
+td.mat-cell {
+  padding: 12px;
+  text-align: left;
   font-size: 14px;
+  border-bottom: 1px solid #ddd;
+  background-color: $coloreSezioniMenu;
 }
-
-.paginator {
+ 
+ 
+button.mat-button {
+  min-width: 0;
+  color: #ffffff;
+  background-color: $colorePrincipale;
+}
+ 
+ 
+.mat-paginator {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
+  background-color: $colorePrincipale;
+  color: #fff;
 }
-
-
-
+ 
+ 
+.mat-form-field {
+  font-size: 14px;
+  width: 20%;
+  margin-left: 77%;
+  color: #ffffff !important;
+}
+ 
+ 
+.cell {
+  font-size: 14px;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+ 

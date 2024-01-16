@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { ConfigService } from '../../store/config.service';
 
@@ -7,7 +7,7 @@ import { ConfigService } from '../../store/config.service';
   templateUrl: './roomEditDialogBox.component.html',
   styleUrls: ['./roomEditDialogBox.component.scss']
 })
-export class RoomEditDialogBoxComponent implements OnInit {
+export class RoomEditDialogBoxComponent implements OnInit,OnDestroy {
 
   constructor(private dialogRef: MatDialogRef<RoomEditDialogBoxComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private service: ConfigService) { }
 
@@ -20,13 +20,13 @@ export class RoomEditDialogBoxComponent implements OnInit {
   }
 
   onYesClick(item:any): void {
-    this.service.updateRoom_id(item,this.data.pathGetAll,this.data.contentDatabase,this.data.dataSource)
+    this.service.updateRoom_id(item,this.data.contentDatabase,this.data.dataSource)
     this.service.getAll()
     this.dialogRef.close();
   }
 
   ngOnDestroy(): void {
     this.service.getAll();
-    
+
   }
 }

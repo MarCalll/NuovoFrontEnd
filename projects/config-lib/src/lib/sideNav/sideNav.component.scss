@@ -1,73 +1,75 @@
 @import '../style/index.scss';
 
 $sidenavwidth: 169.5px;
-
+ 
 .mat-sidenav-container {
-    height: 100%;
-    width: 100%;
-  }
-
-  .mat-sidenav {
-    width: 170px; // Imposta la larghezza desiderata per la sidenav
-    height: 100%;
-    position: fixed;
-    display: flex;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    background-color: $colorePrincipale;
-  }
-
-  .mat-sidenav-content {
-    width: auto;
-    height: 100%;
-  }
-
-  .indice{
-    background-color: $coloreSezioniMenu;
-    font-size: 14px;
-    color: #ffffff;
-    padding: 5px;
-    border-radius: 2px;
-  }
-
-  .indice:hover {
-    background-color: $coloreInHover;
-  }
-
-  .indice::before {
-    color: #ffffff;
-    display: inline-block ;
-    width: 1em;
-    margin-left: -1em;
-    margin-right: 0.5em;
-  }
-
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .sideNavSearch {
-    background-color: rgba(255, 255, 255, 0.316);
-    color:#ffffff;
-    margin: 0%;
-    height: 40px;
-    width:$sidenavwidth;
-  }
-
-  .sideNavSearchIcon {
-    color:white;
-  }
-
-  .searchInput {
-    padding-bottom: 6px;
-    width:$sidenavwidth;
-  }
-
-
+  height: 100%;
+  width: 100%;
+}
+ 
+.mat-sidenav {
+  width: 170px;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: $colorePrincipale;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+ 
+.mat-sidenav-content {
+  width: auto;
+  height: 100%;
+}
+ 
+.indice {
+  background-color: $coloreSezioniMenu;
+  font-size: 14px;
+  color: $colorePrincipale;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+ 
+.indice:hover {
+  background-color: $coloreInHover;
+}
+ 
+.indice::before {
+  content: "\2022";
+  color: $colorePrincipale;
+  margin-right: 8px;
+}
+ 
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+ 
+.sideNavSearch {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: $colorePrincipale;
+  margin: 0%;
+  height: 40px;
+  width: $sidenavwidth;
+}
+ 
+.sideNavSearchIcon {
+  color: $colorePrincipale;
+}
+ 
+.searchInput {
+  padding-bottom: 6px;
+  width: $sidenavwidth;
+  border: none;
+  background-color: transparent;
+  color: $colorePrincipale;
+}
+ 
 
 
 

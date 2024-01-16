@@ -19,7 +19,6 @@ export class RoomDeleteDialogBoxComponent implements OnInit {
   }
 
   onSiClick(): void {
-    this.service.deleteById(this.data.item.id_room,this.data.pathGetAll,this.data.contentDatabase,this.data.dataSource);
     this.dialogRef.close()
   }
 

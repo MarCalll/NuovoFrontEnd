@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GenericTableComponent } from '../genericTable/genericTable.component';
+import { ConfigService,paths } from '../store/config.service';
 
 @Component({
   selector: 'config-gestioneStanze',
@@ -8,9 +9,10 @@ import { GenericTableComponent } from '../genericTable/genericTable.component';
 })
 export class GestioneStanzeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:ConfigService) { }
 
   ngOnInit() {
+    this.service.setPath(paths.stanzeLetti)
   }
 
 }

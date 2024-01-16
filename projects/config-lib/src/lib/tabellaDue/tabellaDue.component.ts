@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfigService, paths } from '../store/config.service';
 
 @Component({
   selector: 'config-tabellaDue',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabellaDueComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:ConfigService) { }
 
   ngOnInit() {
+    this.service.setPath(paths.letti)
   }
 
 }

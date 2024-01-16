@@ -24,9 +24,10 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 //sidenav
-$colorePrincipale: rgb(11, 26, 45);
-$coloreSezioniMenu :  rgba(255, 255, 255, 0.185);
-$coloreInHover :  rgb(16, 38, 67);
+$colorePrincipale: #26a69a;
+$coloreSezioniMenu: #e7f1f9;
+$coloreInHover: #80cbc4;
+$coloreTesto: #ffffff;
 
 
 ::ng-deep mat-form-field.mat-form-field-appearance-outline .mat-form-field-wrapper {

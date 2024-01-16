@@ -29,8 +29,7 @@ import { AddRoomDialogBoxComponent } from '../dialog/addRoomDialogBox/addRoomDia
         component: ContainerComponent,
         children:[
           {path: 'gStanze', component: GestioneStanzeComponent},
-          {path: 'corsie', component: TabellaDueComponent},
-          {path: 'RequisitiChiusuraCartella', component: TabellaDueComponent},
+          {path: 'tabdue', component: TabellaDueComponent},
         ]
       }
     ])

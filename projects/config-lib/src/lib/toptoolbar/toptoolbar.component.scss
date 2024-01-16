@@ -2,12 +2,29 @@
 
 .toptoolbarstyle {
   background-color: $colorePrincipale;
-  color: rgb(255, 255, 255);
+  color: $coloreTesto;
   min-height: 2px;
   height: 40px;
   padding-left: 0%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .spacer{
   flex: 1 1 auto;
+}
+
+.mat-toolbar-row {
+  display: flex;
+  align-items: center;
+}
+ 
+.mat-icon {
+  font-size: 20px;
+}
+ 
+button.mat-button {
+  color: $coloreTesto;
+  &:hover {
+    background-color: transparent;
+  }
 }

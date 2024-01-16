@@ -1,16 +1,22 @@
-.strutturaDegenza {
-    position:absolute;
-    padding-left: 3%;
-    display: flex;
-    align-items: center;
-    text-align: center;
-  }
-  .mat-form-field {
-    width: 200px; 
-  }
-  
-  .spacerDegenza {
-    width: auto;
-    padding-left: 2px;
-  }
+@import '../style/index.scss';
 
+.strutturaDegenza {
+  position: absolute;
+  padding-left: 3%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+ 
+.mat-form-field {
+  width: 200px;
+}
+ 
+.spacerDegenza {
+  width: auto;
+  padding-left: 2px;
+}
+ 
+.mat-option {
+  border: 1px solid $colorePrincipale;
+}
