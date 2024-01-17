@@ -14,18 +14,19 @@ export class StanzeStrutturaDegenzaComponent implements OnInit {
 
   path = this.service.getPath(paths.getAllStrutture)
 
-  struttureArr = []
-  struttureSet = new Set()
+  strutture = []
   degenzeArr = ["degenz1","degenz2","degenz3","degenz4"]
 
   ngOnInit() {
     this.http.get<any[]>(this.path).subscribe(data => {
       for(let ele of data) {
-        this.struttureArr.push(ele.stDescrizione)
+        this.strutture.push({id:ele.id,room_number:ele.srDescrizione})
       }
-      this.struttureSet = new Set(this.struttureArr);
     })
+  }
 
+  selectStruttura(ele:any) {
+    console.log('mando al backend: ' + ele.id)
   }
 
 }

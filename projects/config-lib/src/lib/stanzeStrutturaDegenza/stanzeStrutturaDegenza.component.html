@@ -4,7 +4,7 @@
     <div>
       <mat-form-field>
         <mat-select placeholder="Struttura">
-          <mat-option *ngFor="let struttura of this.struttureSet" value="option">{{struttura}}</mat-option>
+          <mat-option *ngFor="let struttura of this.strutture" (click) = 'selectStruttura(struttura)'>{{struttura.room_number}}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
