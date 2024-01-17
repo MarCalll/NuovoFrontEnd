@@ -14,7 +14,6 @@ th.mat-header-cell {
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
 }
  
 td.mat-cell {
@@ -37,7 +36,6 @@ button.mat-button {
 .mat-paginator {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
   background-color: $colorePrincipale;
   color: #fff;
 }

@@ -1,4 +1,3 @@
-
 <div>
   <div class="strutturaDegenza">
     <div>
@@ -12,7 +11,7 @@
     <div class="spacerDegenza" *ngIf="this.degenze.length!=0;else degenzeIsNull">
       <mat-form-field>
         <mat-select placeholder="Degenza">
-          <mat-option *ngFor="let degenza of this.degenze" [value]='degenza.id'>{{degenza.srDescrizione}}</mat-option>
+          <mat-option *ngFor="let degenza of this.degenze" [value]='degenza.id' (click)="selectDegenza(degenza.id)">{{degenza.srDescrizione}}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>

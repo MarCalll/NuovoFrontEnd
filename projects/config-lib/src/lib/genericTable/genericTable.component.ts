@@ -16,12 +16,35 @@ export class GenericTableComponent implements OnInit {
   constructor(private http: HttpClient,protected dialog:MatDialog,private service:ConfigService) { }
 
   ngOnInit() {
-    this.loadTableData();
+    this.service.dataSource = this.dataSource
+    this.service.getAll();
+
+    if (this.actions == true) {
+      this.displayedColumns.push('actions');
+    }
+    // cambio nome delle tabelle
+    if (this.renameColumns && this.renameColumns.length > 0) {
+      for (let i = 0; i < this.displayedColumns.length; i++) {
+        const columnsDB = this.displayedColumns[i];
+        const renamedColumn = this.renameColumns[i];
+        this.colonneTabella.push({ nomeVisualizzato: renamedColumn, colonnaDatabase: columnsDB });
+      }
+    }else{
+        for (let i = 0; i < this.displayedColumns.length; i++) {
+          const columnsDB = this.displayedColumns[i];
+          this.colonneTabella.push({ nomeVisualizzato: columnsDB, colonnaDatabase: columnsDB });
+        }
+    }
+    if (this.itemPerPage==null) {
+      this.itemPerPage = 10
+    }
+
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
 
   @Input() displayedColumns: string[]
+  @Input() renameColumns: string[]
   @Input() itemPerPage: number;
 
   @Input() actions: boolean;
@@ -32,21 +55,9 @@ export class GenericTableComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  colonneTabella =[];
 
   dataSource = new MatTableDataSource<any>();
-  
-  loadTableData() {
-    this.service.dataSource = this.dataSource
-    this.service.getAll();
-
-    if (this.actions == true) {
-      this.displayedColumns.push('actions');
-    }
-    if (this.itemPerPage==null) {
-      this.itemPerPage = 10
-    }
-
-  }
 
   openBedDialog(item: any) {
     this.dialog.open(BedDialogBoxComponent, {
