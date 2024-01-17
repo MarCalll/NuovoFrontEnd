@@ -12,21 +12,28 @@ export class StanzeStrutturaDegenzaComponent implements OnInit {
 
   constructor(private http: HttpClient,private service:ConfigService) { }
 
-  path = this.service.getPath(paths.getAllStrutture)
+  pathStrutture = this.service.getPath(paths.getAllStrutture)
+  pathDegenza = this.service.getPath(paths.getAllDegenze)
 
   strutture = []
-  degenzeArr = ["degenz1","degenz2","degenz3","degenz4"]
+  degenze = []
 
   ngOnInit() {
-    this.http.get<any[]>(this.path).subscribe(data => {
+    this.http.get<any[]>(this.pathStrutture).subscribe(data => {
       for(let ele of data) {
-        this.strutture.push({id:ele.id,room_number:ele.srDescrizione})
+        this.strutture.push({id:ele.id,stDescrizione:ele.stDescrizione})
       }
     })
   }
 
-  selectStruttura(ele:any) {
-    console.log('mando al backend: ' + ele.id)
+  selectStruttura(strutturaId:any) {
+    this.http.get<any[]>(this.pathDegenza).subscribe(data => {
+      for(let ele of data) {
+        if(strutturaId == ele.id){
+          this.degenze.push({id:ele.id,srDescrizione:ele.srDescrizione})
+        }
+      }
+    })
   }
 
 }

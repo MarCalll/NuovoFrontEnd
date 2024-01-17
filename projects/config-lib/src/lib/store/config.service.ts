@@ -8,7 +8,8 @@ export enum paths {
   stanzeLetti = '/rest/ADMIN/rooms',
   getLettiByRoomId = '/rest/ADMIN/Beds/byRoomId/',
   letti = '/rest/ADMIN/Beds',
-  getAllStrutture = '/rest/ADMIN/Rooms/getAllStrutture'
+  getAllStrutture = '/rest/ADMIN/Rooms/getAllStrutture',
+  getAllDegenze = '/rest/ADMIN/Rooms/getAllDegenze'
 }
 
 @Injectable()
