@@ -28,9 +28,11 @@ export class StanzeStrutturaDegenzaComponent implements OnInit {
 
   selectStruttura(strutturaId:any) {
     this.http.get<any[]>(this.pathDegenza).subscribe(data => {
+
       for(let ele of data) {
-        if(strutturaId == ele.id){
-          this.degenze.push({id:ele.id,srDescrizione:ele.srDescrizione})
+        var stIdStrutt = ele.stId.id;
+        if(strutturaId == stIdStrutt){
+          this.degenze.push({id:stIdStrutt,srDescrizione:ele.srDescrizione})
         }
       }
     })

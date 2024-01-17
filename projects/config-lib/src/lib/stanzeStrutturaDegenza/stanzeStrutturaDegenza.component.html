@@ -4,7 +4,7 @@
     <div>
       <mat-form-field>
         <mat-select placeholder="Struttura">
-          <mat-option *ngFor="let struttura of this.strutture" (click)='selectStruttura(struttura.id)'>{{struttura.stDescrizione}}</mat-option>
+          <mat-option *ngFor="let struttura of this.strutture" [value]='struttura.id' (click)='selectStruttura(struttura.id)'>{{struttura.stDescrizione}}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -12,7 +12,7 @@
     <div class="spacerDegenza">
       <mat-form-field>
         <mat-select placeholder="Degenza">
-          <mat-option *ngFor="let degenza of this.degenze">{{degenza.stDescrizione}}</mat-option>
+          <mat-option *ngFor="let degenza of this.degenze" [value] = 'degenza.id'>{{degenza.srDescrizione}}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
