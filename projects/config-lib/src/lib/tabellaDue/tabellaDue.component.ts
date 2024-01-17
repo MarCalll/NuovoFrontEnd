@@ -11,7 +11,7 @@ export class TabellaDueComponent implements OnInit {
   constructor(private service:ConfigService) { }
 
   ngOnInit() {
-    this.service.setPath(paths.letti)
+    this.service.setPathWithId(paths.stanzeLetti, "TEST")
   }
 
 }

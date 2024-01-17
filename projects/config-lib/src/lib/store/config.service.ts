@@ -5,7 +5,7 @@ import { Store } from "@ngrx/store";
 import { BehaviorSubject } from "rxjs";
 
 export enum paths {
-  stanzeLetti = '/rest/ADMIN/Rooms/getRoomsWithBeds',
+  stanzeLetti = '/rest/ADMIN/Rooms/getRoomsWithBed',
   getLettiByRoomId = '/rest/ADMIN/Beds/byRoomId/',
   letti = '/rest/ADMIN/Beds',
   getAllStrutture = '/rest/ADMIN/Rooms/getAllStrutture',
@@ -35,7 +35,7 @@ export class ConfigService {
   setPath(path:paths) {
     this.pathGetAll = (this.pathDoor+path)
   }
-  setPathWithId(path:paths,id:number) {
+  setPathWithId(path:paths,id:any) {
     this.pathGetAll = this.pathDoor+path+'/'+id
   }
   getPath(path : paths) {

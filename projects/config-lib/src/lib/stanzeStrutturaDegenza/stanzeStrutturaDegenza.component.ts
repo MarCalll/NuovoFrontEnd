@@ -16,7 +16,7 @@ export class StanzeStrutturaDegenzaComponent implements OnInit {
   pathDegenza = this.service.getPath(paths.getAllDegenze)
 
   strutture = []
-  degenze = [{id:3,srDescrizione:'ele.stDescrizione'}]
+  degenze = []
 
   ngOnInit() {
     this.http.get<any[]>(this.pathStrutture).subscribe(data => {
@@ -32,7 +32,7 @@ export class StanzeStrutturaDegenzaComponent implements OnInit {
       for(let ele of data) {
         var stIdStrutt = ele.stId.id;
         if(strutturaId == stIdStrutt){
-          this.degenze.push({id:stIdStrutt,srDescrizione:ele.srDescrizione})
+          this.degenze.push({id:ele.id,srDescrizione:ele.srDescrizione})
         }
       }
     })
@@ -40,6 +40,9 @@ export class StanzeStrutturaDegenzaComponent implements OnInit {
 
   selectDegenza(degenzaId:any) {
     this.service.setPathWithId(paths.stanzeLetti,degenzaId)
+    this.service.getAll()
+    console.log(this.service.dataSource.data)
+    console.log(this.service.contentDatabase)
   }
 
 }
