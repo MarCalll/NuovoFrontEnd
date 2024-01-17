@@ -9,13 +9,22 @@
       </mat-form-field>
     </div>
 
-    <div class="spacerDegenza">
+    <div class="spacerDegenza" *ngIf="this.degenze.length!=0;else degenzeIsNull">
       <mat-form-field>
         <mat-select placeholder="Degenza">
-          <mat-option *ngFor="let degenza of this.degenze" [value] = 'degenza.id'>{{degenza.srDescrizione}}</mat-option>
+          <mat-option *ngFor="let degenza of this.degenze" [value]='degenza.id'>{{degenza.srDescrizione}}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
+
+    <ng-template #degenzeIsNull>
+      <div class="spacerDegenza">
+        <mat-form-field>
+          <mat-select placeholder="Degenza" disabled>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </ng-template>
 
   </div>
 </div>

@@ -24,11 +24,12 @@ export class StanzeStrutturaDegenzaComponent implements OnInit {
         this.strutture.push({id:ele.id,stDescrizione:ele.stDescrizione})
       }
     })
+    console.log(this.degenze)
   }
 
   selectStruttura(strutturaId:any) {
     this.http.get<any[]>(this.pathDegenza).subscribe(data => {
-
+      this.degenze = []
       for(let ele of data) {
         var stIdStrutt = ele.stId.id;
         if(strutturaId == stIdStrutt){
