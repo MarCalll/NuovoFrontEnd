@@ -12,7 +12,6 @@ export class GestioneStanzeComponent implements OnInit {
   constructor(private service:ConfigService) { }
 
   ngOnInit() {
-    this.service.setPath(paths.stanzeLetti)
   }
 
 }

@@ -13,7 +13,7 @@
     
         <td mat-cell *matCellDef="let element" class="cell">
     
-          <ng-container *ngIf="column.colonnaDatabase === 'actions'; else notActionsColumn">
+          <ng-container *ngIf="column.colonnaDatabase == 'actions'; else notActionsColumn">
     
             <div class="buttons">
                 <button mat-button *ngIf="bedManagement == true" (click)="openBedDialog(element)" ><mat-icon>bed</mat-icon></button>
